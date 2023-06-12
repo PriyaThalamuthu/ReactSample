@@ -33,11 +33,8 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-
-      - name: "upload apk to App Center"
-        uses: wzieba/AppCenter-Github-Action@v1
+      - name: Upload
+        uses: actions/upload-artifact@v2
         with:
-          appName: "jeyapriya-vthink.co.in/React-App"
-          token: "8f23a8735c921f752aabd5b0ff90b191f23da53e"
-          file: app/build/outputs/apk/release/app-release.apk
-          notifyTesters: "true"
+          name: Build Artifacts
+          path: app/build/outputs/
