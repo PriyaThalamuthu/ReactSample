@@ -28,7 +28,7 @@ jobs:
           ./gradlew build
           ./gradlew assembleRelease
           ./gradlew app:bundleRelease
-          ls -ltr
+          la -lr
         env:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
