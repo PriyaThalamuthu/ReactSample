@@ -28,6 +28,7 @@ jobs:
           ./gradlew build
           ./gradlew assembleRelease
           ./gradlew app:bundleRelease
+          pwd
         env:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -36,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Build Artifacts
-          path: ./android/app/release/app-release.apk
+          path: /app/release/app-release.apk
