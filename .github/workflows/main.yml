@@ -33,19 +33,8 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      - name: Upload Release Build to Artifacts
+      - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: release-artifacts
-          paths: |
-            app/build/outputs/apk/release/
-            app/build/outputs/bundle/release/
-          
-      - name: Create Github Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-          prerelease: true
-          files: |
-            app/build/outputs/apk/release/app-release.apk
-            app/build/outputs/bundle/release/app-release.aab
+          name: Build Artifacts
+          path: ./android/app/build/outputs/apk/release/app-release.apk
