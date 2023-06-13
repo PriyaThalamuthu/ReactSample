@@ -33,12 +33,16 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build Artifacts
+          path: ./android/app/build/outputs/apk/release/app-release.apk
           
       - name: "upload artefact to App Center"
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: "jeyapriya@vthink.co.in/React-App"
+          appName: "jeyapriya-vthink.co.in/testapk"
           token: ${{secrets.APP_CENTER_TOKEN}}
           file: ./android/app/build/outputs/apk/release/app-release.apk
-          group: "tester" 
           notifyTesters: "true"
