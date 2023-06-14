@@ -38,15 +38,11 @@ jobs:
         with:
           name: app-release.apk
           path: ./android/app/build/outputs/apk/release/app-release.apk
-      - name: Download latest artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: app-release.apk 
       - name: Upload to app center
-        uses: wzieba/AppCenter-Github-Action@v1
+        uses: devussy/AppCenter-Distribute-Github-Action@v1.0.5
         with:
-          appName: "jeyapriya-vthink.co.in/testapk"
+          app: "jeyapriya-vthink.co.in/testapk"
           token:  ${{ secrets.APP_CENTER_TOKEN }}
           group: tester
-          file: app-release.apk
-          notifyTesters: "true"
+          file: ./android/app/build/outputs/apk/release/app-release.apk
+          silent: "false"
