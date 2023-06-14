@@ -37,11 +37,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Build artifact
-          path: ./android/app/build/outputs/apk/release/app-release.apk
+          path: ./android/app/build/outputs/**
       - name: "upload apk to App Center"
         uses: wzieba/AppCenter-Github-Action@v1
         with:
           appName: "jeyapriya-vthink.co.in/apktest"
-          token: ${{secrets.APP_CENTER_TOKEN}}
+          token: 3274a74568c5820d55c6afd8e50a9d094e8edb0c
           file: ./android/app/build/outputs/apk/release/app-release.apk 
           notifyTesters: "true"
