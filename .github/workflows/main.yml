@@ -28,21 +28,22 @@ jobs:
           ./gradlew build
           ./gradlew assembleRelease
           ./gradlew app:bundleRelease
-          pwd
+          pwd"
         env:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
-          name: Build artifact
-          path: ./android/app/build/outputs/apk/release/app-release.apk 
-      - name: "upload apk to App Center"
+          name: App
+          path: ${{ github.workspace}} /app/build/outputs/apk/release/app-release.apk
+      - name: upload artefact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: "jeyapriya-vthink.co.in/apktest"
+          appName: jeyapriya/apktest
           token: 3274a74568c5820d55c6afd8e50a9d094e8edb0c
-          file: ./android/app/build/outputs/apk/release/app-release.apk 
-          group: "tester" 
+          group: testers
+          file: app/build/outputs/apk/release/app-release.apk
           notifyTesters: "true"
+          debug: "false"
