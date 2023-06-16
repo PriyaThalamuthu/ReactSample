@@ -43,5 +43,7 @@ jobs:
         with:
           appName: "jeyapriya/apktest"
           token: ${{secrets.APP_CENTER_TOKEN}}
+          group: testers
           file: ./android/app/build/outputs/apk/release/app-release.apk 
           notifyTesters: "true"
+          debug: "false"
