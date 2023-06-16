@@ -44,6 +44,6 @@ jobs:
           appName: jeyapriya/apktest
           token: 3274a74568c5820d55c6afd8e50a9d094e8edb0c
           group: testers
-          file: .android/app/build/outputs/apk/release/app-release.apk
+          file: app/build/outputs/apk/release/app-release.apk
           notifyTesters: "true"
           debug: "false"
